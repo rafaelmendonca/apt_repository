@@ -1,0 +1,8 @@
+# File managed by Puppet, any changes will be lost! 
+<% @url_repo.each  do |url| -%>
+<% @codename.each do |codename| -%>
+# Repository <%= @name %> - <%= url %> - <%= codename %>
+deb http://<%= url -%>/<%= @os -%> <%= codename -%> <%= @sections.join(' ') %>
+
+<% end -%>
+<% end -%>
