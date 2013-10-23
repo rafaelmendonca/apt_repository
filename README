@@ -1,6 +1,6 @@
 # == Class: apt_repository
 #
-#  A simple module to manage repository of Debian (APT/APTITUDE - /etc/apt/source.list).
+#  A simple module to manage repository of Debian (APT/APTITUDE - /etc/apt/source.list.d).
 #  A Debian repository is a set of Debian packages organized in a special 
 # directory tree which also contains a few additional files containing indexes and checksums of the packages.
 # If a user adds a repository to his /etc/apt/sources.list file, he can easily view and install all the packages available in it just like the packages contained in Debian
@@ -47,6 +47,12 @@
 #       	                        os => 'debian',
 #				codename => ['wheezy','wheezy-backports'],
 #			}	
+#	  		apt_repository::mirror {'Debian Repository':
+#				url_repo => ['ftp.br.debian.org'],
+#       	                        os => 'debian',
+#				codename => ['wheezy'],
+#			}	
+#
 #                }
 #                ubuntu: {
 #	  		apt_repository::mirror {'Ubuntu Repository':
