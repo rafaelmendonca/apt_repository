@@ -1,4 +1,4 @@
-name    'apt_repository'
+name    'rafaelmendonca-apt_repository'
 version '0.1.0'
 author 'rafaelmendonca'
 license 'Apache License, Version 2.0'
