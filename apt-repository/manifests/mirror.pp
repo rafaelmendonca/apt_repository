@@ -1,17 +1,17 @@
-define apt-repository::mirror (	
+define apt_repository::mirror (	
 		$sections	= ['main', 'contrib', 'non-free'],
 		$codename 	= ["${::lsbdistcodename}"],
-		$os	= 'debian',
-#		$name = $tittle,
+		$os	        = 'debian',
 		$url_repo,
+
 	) { 
-	file {"/etc/apt/sources.list.d/${name}.list":
-		ensure => present,
-		mode	=> 0644,
-		content => template('apt-repository/mirror.erb'),
+	file {'/etc/apt/sources.list':
+		ensure      => present,
+		mode    	=> 0644,
+		content     => template('apt_repository/mirror.erb'),
 	}
-#	exec{'apt-repository::update':
-#		command		=>	'/usr/bin/apt-get update',
-#		subscribe	=> 	File['/etc/apt/sources.list'],
-#	}
+	exec{'apt_repository::update':
+		command		=>	'/usr/bin/apt-get update',
+		subscribe	=> 	File['/etc/apt/sources.list'],
+	}
 }

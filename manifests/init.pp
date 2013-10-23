@@ -1,4 +1,4 @@
-# == Class: apt_repository
+# == Class: apt-repository
 #
 #  Module to manage repository Debian.
 # A Debian repository is a set of Debian packages organized in a special 
@@ -48,19 +48,19 @@
 #
 # === Examples
 #
-# class apt_repository {
+# class apt-repository {
 #        case $::operatingsystem {
 #                debian: {
-#	  		apt_repository::mirror {'Debian Repository':
+#	  		apt-repository::mirror {'Debian Repository':
 #				url_repo => ['ftp.debian.org'],
-#       	    os       => 'debian',
+#       	                        os => 'debian',
 #				codename => ['wheezy','wheezy-backports'],
 #			}	
 #                }
 #                ubuntu: {
-#	  		apt_repository::mirror {'Ubuntu Repository':
+#	  		apt-repository::mirror {'Ubuntu Repository':
 #				url_repo => ['br.archive.ubuntu.com'],
-#               os       => 'ubuntu',
+#       	                        os => 'ubuntu',
 #				codename => ['precise','precise-updates'],
 #				sections => ['main','contrib'],
 #			}	
@@ -76,19 +76,25 @@
 #
 # Copyright 2013 Rafael Mendonca.
 #
-class apt_repository {
+class apt-repository {
         case $::operatingsystem {
                 debian: {
-	  		apt_repository::mirror {'Debian Repository':
+	  		apt-repository::mirror {'ftp-debian-org':
 				url_repo => ['ftp.debian.org'],
-       	        os       => 'debian',
+       	                        os => 'debian',
+				codename => ['wheezy','wheezy-backports'],
+			}	
+			apt-repository::mirror {'ftp-br-debian-org':
+				url_repo => ['ftp.br.debian.org'],
+       	                        os => 'debian',
 				codename => ['wheezy'],
 			}	
+
                 }
                 ubuntu: {
-	  		apt_repository::mirror {'Ubuntu Repository':
+	  		apt-repository::mirror {'Ubuntu Repository':
 				url_repo => ['br.archive.ubuntu.com','security.ubuntu.com'],
-       	        os       => 'ubuntu',
+       	                        os => 'ubuntu',
 				codename => ['precise','precise-updates'],
 			}	
 
